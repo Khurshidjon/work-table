@@ -75,6 +75,14 @@
                                       </select>
                                   </div>
                                   <div class="form-group">
+                                      <select name="parent_id" class="form-control">
+                                          <option value="">--select parent--</option>
+                                          @forelse($sections as $section)
+                                              <option value="{{ $section->id }}">{{ $section->name_uz }}</option>
+                                          @endforeach
+                                      </select>
+                                  </div>
+                                  <div class="form-group">
                                       <select name="head_style" class="form-control">
                                           <option value="">--select style--</option>
                                           <option value="vertical">Vertical</option>

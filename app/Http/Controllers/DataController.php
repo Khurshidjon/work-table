@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data;
+use App\DataCollection;
 use App\District;
 use App\Indicator;
 use App\Region;
@@ -19,8 +20,8 @@ class DataController extends Controller
      */
     public function index()
     {
-        $dataRegion = Data::where('region_id', '!=', null)->get();
-        $dataSahovat = Data::where('indicator_id', '!=', null)->get();
+        $dataRegion = DataCollection::all();
+        $dataSahovat = Data::where('id', '!=', null)->get();
         return view('backend.sectors.data.index', [
             'dataRegion' => $dataRegion,
             'dataSahovat' => $dataSahovat,
@@ -34,7 +35,7 @@ class DataController extends Controller
      */
     public function create($type = '')
     {
-        $sections = Section::all();
+        $sections = Section::query()->where('parent_id', null)->get();
         $units = UnitMeasurement::all();
         $indicators = Indicator::all();
         $regions = Region::all();
@@ -61,19 +62,23 @@ class DataController extends Controller
                 'district_id' => 'required|numeric',
             ]);
         }
-        $data = new Data();
-        $data->title = $request->title;
-        $data->value = $request->value;
+        $data_collection = new DataCollection();
+        $data_collection->title = $request->company_name;
+        $data_collection->user_id = \Auth::id();
         if ($request->region_id != '' and $request->district_id != ''){
-            $data->region_id = $request->region_id;
-            $data->district_id = $request->district_id;
+            $data_collection->region_id = $request->region_id;
+            $data_collection->district_id = $request->district_id;
         }
-        $data->section_id = $request->section_id;
-        $data->unit_id = $request->unit_id;
-        $data->indicator_id = $request->indicator_id;
-        $data->user_id = \Auth::id();
-        $data->status = $request->status;
-        $data->save();
+        $data_collection->status = $request->status;
+        $data_collection->save();
+
+        foreach ($request->input('value') as $key => $section){
+            $data = new Data();
+            $data->value = $section;
+            $data->section_id = $key;
+            $data->data_id = $data_collection->id;
+            $data->save();
+        }
         return redirect()->route('data.index')->with('success', 'Section has been created successfully');
     }
 
@@ -96,7 +101,7 @@ class DataController extends Controller
      */
     public function edit(Data $data, $type)
     {
-        $sections = Section::all();
+        $sections = Section::where('parent_id', null)->get();
         $units = UnitMeasurement::all();
         $indicators = Indicator::all();
         $regions = Region::all();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data;
+use App\DataCollection;
 use App\District;
 use App\Region;
 use App\Section;
@@ -46,19 +47,19 @@ class GetDataController extends Controller
     public function getTableDataResult(District $district, Table $table)
     {
         $sectionTop = Section::where('status', 1)->where('table_id', $table->id)->get();
-        $sectionBottom = Section::where('status', 0)->where('table_id', $table->id)->orderBy('order')->orderBy('created_at')->get();
-        $sectionBottom2 = Section::where('status', 2)->where('table_id', $table->id)->orderBy('order')->orderBy('created_at')->get();
+        $sectionBottom = Section::where('status', 0)->where('table_id', $table->id)->get();
+        $sectionBottom2 = Section::where('status', 2)->where('table_id', $table->id)->get();
         $cols = Section::where('colspan', 1)->where('table_id', $table->id)->with('data')->get();
+        $dataCollections = DataCollection::all();
         $district = District::find( $district->id);
-        $data = Data::where('status', 1)->get();
         return view('backend.admin.getData.dataResult', [
             'table' => $table,
             'sectionTop' => $sectionTop,
             'sectionBottom' => $sectionBottom,
             'sectionBottom2' => $sectionBottom2,
             'district' => $district,
-            'data' => $data,
-            'cols' => $cols
+            'cols' => $cols,
+            'dataCollections' => $dataCollections
         ]);
     }
 }

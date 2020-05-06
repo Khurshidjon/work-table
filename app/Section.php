@@ -10,4 +10,8 @@ class Section extends Model
     {
         return $this->hasMany(Data::class);
     }
+    public function hasParent()
+    {
+        return $this->hasMany(Section::class, 'parent_id', 'id');
+    }
 }

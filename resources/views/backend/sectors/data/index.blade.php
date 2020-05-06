@@ -76,7 +76,7 @@
                                             {{ $item->title }}
                                         </td>
                                         <td>
-                                            {{ $item->value }}
+{{--                                            {{ $item->value }}--}}
                                         </td>
                                         <td>
                                             {{ $item->region_id }}
@@ -85,10 +85,10 @@
                                             {{ $item->district_id }}
                                         </td>
                                         <td>
-                                            {{ $item->section_id }}
+{{--                                            {{ $item->section_id }}--}}
                                         </td>
                                         <td>
-                                            {{ $item->indicator_id }}
+{{--                                            {{ $item->indicator_id }}--}}
                                         </td>
                                         <td class="text-primary">
                                             {{ $item->status }}

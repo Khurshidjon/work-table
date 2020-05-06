@@ -76,6 +76,14 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
+                                                    <select name="parent_id" class="form-control">
+                                                        <option value="">--select parent--</option>
+                                                        @forelse($sections as $section)
+                                                            <option value="{{ $section->id }}" {{ $item->parent_id == $section->id ? 'selected':'' }}>{{ $section->name_uz }}</option>
+                                                            @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
                                                     <select name="head_style" class="form-control">
                                                         <option value="">--select style--</option>
                                                         <option value="vertical" {{ $item->head_style=='vertical'?'selected':'' }}>Vertical</option>

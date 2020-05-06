@@ -25,62 +25,51 @@
                               </div>
                               <div class="card-body">
                                   <br>
-                                  @if($type == 'sahovat')
                                   <div class="form-group">
-                                      <label for="indicator_id">Ko'rsatkichlar nomi</label>
-                                      <select name="indicator_id" id="indicator_id" class="form-control">
-                                          <option value="">--select indicator--</option>
-                                          @foreach($indicators as $indicator)
-                                              <option value="{{ $indicator->id }}">{{ $indicator->name_uz }}</option>
+                                      <label style="color: black" for="regions">Viloyat</label>
+                                      <select name="region_id" id="regions" class="form-control" required aria-required="true">
+                                          <option value="">--select region--</option>
+                                          @foreach($regions as $region)
+                                              <option value="{{ $region->id }}">{{ $region->name_uz }}</option>
                                           @endforeach
                                       </select>
                                   </div>
-                                  @elseif($type == 'region')
-                                      <div class="form-group">
-                                          <label for="regions">Viloyat</label>
-                                          <select name="region_id" id="regions" class="form-control" required aria-required="true">
-                                              <option value="">--select region--</option>
-                                              @foreach($regions as $region)
-                                                  <option value="{{ $region->id }}">{{ $region->name_uz }}</option>
-                                              @endforeach
-                                          </select>
-                                      </div>
-                                      <div class="form-group">
-                                          <label for="districts">Tuman</label>
-                                          <select name="district_id" id="districts" class="form-control" required aria-required="true">
-                                              <option value="">--select district--</option>
-                                          </select>
-                                      </div>
-                                  @endif
                                   <div class="form-group">
-                                      <label for="section">Kerakli ustun</label>
-                                      <select name="section_id" class="form-control">
-                                          <option value="">--select section--</option>
+                                      <label style="color: black" for="districts">Tuman</label>
+                                      <select name="district_id" id="districts" class="form-control" required aria-required="true">
+                                          <option value="">--select district--</option>
+                                      </select>
+                                  </div>
+                                  <br>
+                                  <div class="form-group">
+                                      <br>
+                                      <label style="color: black" for="title">Корхона, тадбиркор ёки фермер хўжаликлари номи (ҳомийлар) ва манзили</label>
+                                      <input type="text" id="company_name" class="form-control" placeholder="Номи ва манзилини киритинг" name="company_name" value="{{ old('company_name') }}">
+                                  </div>
+                                  <div class="container-fluid">
+                                      <div class="row">
                                           @foreach($sections as $section)
-                                              <option value="{{ $section->id }}">{{ $section->name_uz }}</option>
+                                              <div class="col-12">
+                                                  <h3><b>{{ $section->name_uz }}</b></h3>
+                                              </div>
+                                              @foreach($section->hasParent as $item)
+                                                  <div class="col-md-12 mt-2">
+                                                      <div class="form-group">
+                                                          <br>
+                                                          <label style="color: black" for="title">{{ $item->name_uz }}</label>
+                                                          <input type="hidden" name="section_id" value="{{ $item->id }}">
+                                                          <input type="text" id="value" class="form-control" placeholder="Қиймат киритинг" name="value[]" value="{{ old('value') }}">
+                                                      </div>
+                                                  </div>
+                                              @endforeach
                                           @endforeach
-                                      </select>
+                                      </div>
                                   </div>
-                                 <div class="row">
-                                     <div class="col-md-6 mt-2">
-                                         <div class="form-group">
-                                             <br>
-                                             <label for="title">Qiymat</label>
-                                             <input type="text" id="title" class="form-control" placeholder="Titile" name="title" value="{{ old('title') }}">
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6">
-                                         <div class="form-group">
-                                             <label for="unit_id">O'lchov birligi</label>
-                                             <select name="unit_id" id="unit_id" class="form-control">
-                                                 <option value="">--select unit--</option>
-                                                 @foreach($units as $unit)
-                                                     <option value="{{ $unit->id }}" {{ $unit->id == old('unit_id')  ? 'selected' : '' }}>{{ $unit->name_uz }}</option>
-                                                 @endforeach
-                                             </select>
-                                         </div>
-                                     </div>
-                                 </div>
+                                  <div class="form-group mt-5">
+                                      <br>
+                                      <label style="color: black" for="title">Корхона, тадбиркор ёки фермер хўжаликлари номи (ҳомийлар) ва манзили</label>
+                                      <input type="text" id="company_help" class="form-control" placeholder="Тури ва миқдорини киритинг" name="company_help" value="{{ old('company_help') }}">
+                                  </div>
                               </div>
                           </div>
                       </div>

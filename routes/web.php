@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'superadmin'], function () {
     Route::resource('sections', 'SectionController');
     Route::resource('unit-measurement', 'UnitMeasurementController');
     Route::resource('indicators', 'IndicatorController');
+    Route::get('register', 'HomeController@register')->name('register');
+    Route::post('register', 'Auth\RegisterController@register')->name('register.form');
 });
 Route::group(['middleware' => 'auth'], function () {
     Route::get('data/index', 'DataController@index')->name('data.index');

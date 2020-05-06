@@ -3,8 +3,8 @@
 @section('content')
 <div class="container" style="height: auto;">
   <div class="row align-items-center">
-    <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-      <form class="form" method="POST" action="{{ route('register') }}">
+    <div class="col-lg-8 col-md-6 col-sm-8 ml-auto mr-auto">
+      <form class="form" method="POST" action="{{ route('register') }}" autocomplete="off">
         @csrf
 
         <div class="card card-login card-hidden mb-3">
@@ -54,6 +54,78 @@
                 </div>
               @endif
             </div>
+            <div class="bmd-form-group{{ $errors->has('phone') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">phone</i>
+                  </span>
+                </div>
+                <input type="text" name="phone" class="form-control" placeholder="{{ __('Phone...') }}" value="{{ old('phone') }}" required>
+              </div>
+              @if ($errors->has('email'))
+                <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </div>
+              @endif
+            </div>
+              <div class="bmd-form-group{{ $errors->has('regions') ? ' has-danger' : '' }} mt-3">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">place</i>
+                  </span>
+                      </div>
+                      <select name="regions" id="regions" class="form-control" required>
+                          <option value="">--выберите регион--</option>
+                          @foreach($regions as $key => $region)
+                              <option value="{{ $key }}">{{ $region->name_uz }}</option>
+                          @endforeach
+                      </select>
+                  </div>
+                  @if ($errors->has('regions'))
+                      <div id="regions-error" class="error text-danger pl-3" for="regions" style="display: block;">
+                          <strong>{{ $errors->first('regions') }}</strong>
+                      </div>
+                  @endif
+              </div>
+              <div class="bmd-form-group{{ $errors->has('districts') ? ' has-danger' : '' }} mt-3">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">place</i>
+                  </span>
+                      </div>
+                      <select name="districts" id="districts" class="form-control" required>
+                          <option value="">--выберите район--</option>
+                      </select>
+                  </div>
+                  @if ($errors->has('districts'))
+                      <div id="districts-error" class="error text-danger pl-3" for="districts" style="display: block;">
+                          <strong>{{ $errors->first('districts') }}</strong>
+                      </div>
+                  @endif
+              </div>
+              <div class="bmd-form-group{{ $errors->has('roles') ? ' has-danger' : '' }} mt-3">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">settings</i>
+                  </span>
+                      </div>
+                      <select name="roles" id="roles" class="form-control" required>
+                          <option value="">--выберите роль--</option>
+                          @foreach(\App\User::roleTypes() as $key => $role)
+                              <option value="{{ $key }}">{{ $role }}</option>
+                          @endforeach
+                      </select>
+                  </div>
+                  @if ($errors->has('roles'))
+                      <div id="roles-error" class="error text-danger pl-3" for="roles" style="display: block;">
+                          <strong>{{ $errors->first('roles') }}</strong>
+                      </div>
+                  @endif
+              </div>
             <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -102,4 +174,29 @@
     </div>
   </div>
 </div>
+@push('js')
+    <script !src="">
+        $('#regions').on('change', function () {
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+            // alert(valueSelected);
+            $.ajax({
+                url: "{{ route('change-districts') }}",
+                type: 'GET',
+                data: {
+                    region_id: valueSelected
+                },
+                success: function (response) {
+                    $('#districts').empty();
+                    $.each(response, function (key, value) {
+                        $('#districts')
+                            .append($("<option></option>")
+                                .attr("value",value.id)
+                                .text(value.name_uz));
+                    })
+                }
+            })
+        })
+    </script>
+@endpush
 @endsection

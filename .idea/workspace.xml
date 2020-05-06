@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67ba2c93-eeb9-4920-92eb-6cef4376fb9a" name="Default Changelist" comment="" />
+    <list default="true" id="67ba2c93-eeb9-4920-92eb-6cef4376fb9a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/korean-shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/korean-shop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DataController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GetDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GetDataController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SectionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Section.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Section.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_194429_create_data_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_194429_create_data_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataResult.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataResult.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/superadmin/sections/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/superadmin/sections/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/superadmin/sections/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/superadmin/sections/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,6 +137,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XkhU9WYrdT2imCf6NewChQ8TAL" />
@@ -127,7 +150,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/admin/getData" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/superadmin/registration" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -138,11 +161,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/backend/superadmin/registration" />
       <recent name="$PROJECT_DIR$/resources/views/backend/admin/getData" />
       <recent name="$PROJECT_DIR$/resources/views/backend/sectors/data" />
       <recent name="$PROJECT_DIR$/resources/views/backend/superadmin/units" />
       <recent name="$PROJECT_DIR$/resources/views/backend/superadmin/indicators" />
-      <recent name="$PROJECT_DIR$/resources/views/backend/superadmin/sections" />
     </key>
   </component>
   <component name="RunManager">
@@ -168,6 +191,7 @@
       <workItem from="1583315010966" duration="4465000" />
       <workItem from="1587843611691" duration="64670000" />
       <workItem from="1587944592820" duration="8014000" />
+      <workItem from="1588741728315" duration="25339000" />
     </task>
     <servers />
   </component>
@@ -191,9 +215,9 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="660" y="252" key="run.anything.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1587894680944" />
-    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1587900749757">
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1588772394920">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1587900749757" />
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1588772394920" />
   </component>
 </project>

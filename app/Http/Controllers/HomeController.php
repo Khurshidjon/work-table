@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Region;
+
 class HomeController extends Controller
 {
     /**
@@ -22,5 +24,13 @@ class HomeController extends Controller
     public function index()
     {
         return view('dashboard');
+    }
+
+    public function register()
+    {
+        $regions = Region::all();
+        return view('backend.superadmin.registration.register', [
+            'regions' => $regions
+        ]);
     }
 }

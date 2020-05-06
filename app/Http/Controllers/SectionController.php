@@ -27,8 +27,10 @@ class SectionController extends Controller
     public function create()
     {
         $tables = Table::where('status', 1)->get();
+        $sections = Section::where('parent_id', null)->get();
         return view('backend.superadmin.sections.create', [
-            'tables' => $tables
+            'tables' => $tables,
+            'sections' => $sections
         ]);
     }
 
@@ -50,6 +52,7 @@ class SectionController extends Controller
         $section->table_id = $request->table_id;
         $section->formula_id = $request->formula_id;
         $section->head_style = $request->head_style;
+        $section->parent_id = $request->parent_id;
         if ($request->status == 'on'){
             $section->status = 1;
         }else{
@@ -79,9 +82,11 @@ class SectionController extends Controller
     public function edit(Section $section)
     {
         $tables = Table::where('status', 1)->get();
+        $sections = Section::where('parent_id', null)->get();
         return view('backend.superadmin.sections.edit', [
             'item' => $section,
             'tables' => $tables,
+            'sections' => $sections
         ]);
     }
 
@@ -103,6 +108,7 @@ class SectionController extends Controller
         $section->formula_id = $request->formula_id;
         $section->head_style = $request->head_style;
         $section->order = $request->order;
+        $section->parent_id = $request->parent_id;
         if ($request->status == 'on'){
             $section->status = 1;
         }else{
