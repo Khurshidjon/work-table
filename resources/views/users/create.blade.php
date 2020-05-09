@@ -34,14 +34,86 @@
                 <div class="row">
                   <label class="col-sm-2 col-form-label">{{ __('Email') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="input-email" type="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" required />
-                      @if ($errors->has('email'))
-                        <span id="email-error" class="error text-danger" for="input-email">{{ $errors->first('email') }}</span>
-                      @endif
-                    </div>
+                      <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                          <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="input-email" type="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" required />
+                          @if ($errors->has('email'))
+                              <span id="email-error" class="error text-danger" for="input-email">{{ $errors->first('email') }}</span>
+                          @endif
+                      </div>
                   </div>
                 </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Phone') }}</label>
+                  <div class="col-sm-7">
+                      <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}">
+                          <input class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" id="input-phone" type="text" placeholder="{{ __('Phone') }}" value="{{ old('phone') }}" required />
+                          @if ($errors->has('phone'))
+                              <span id="phone-error" class="error text-danger" for="input-phone">{{ $errors->first('phone') }}</span>
+                          @endif
+                      </div>
+                  </div>
+                </div>
+                  <div class="row">
+                      <label class="col-sm-2 col-form-label">{{ __('Region') }}</label>
+                      <div class="col-sm-7">
+                          <div class="form-group{{ $errors->has('region_id') ? ' has-danger' : '' }}">
+                              <select name="region_id" id="region_id" class="form-control" required>
+                                  <option value="">--выберите регион--</option>
+                                  @foreach($regions as $region)
+                                      <option value="{{ $region->id }}">{{ $region->name_uz }}</option>
+                                  @endforeach
+                              </select>
+                              @if ($errors->has('region_id'))
+                                  <span id="region_id-error" class="error text-danger" for="region_id-name">{{ $errors->first('region_id') }}</span>
+                              @endif
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <label class="col-sm-2 col-form-label">{{ __('District') }}</label>
+                      <div class="col-sm-7">
+                          <div class="form-group{{ $errors->has('district_id') ? ' has-danger' : '' }}">
+                              <select name="district_id" id="district_id" class="form-control" required>
+                                  <option value="">--выберите район--</option>
+                              </select>
+                              @if ($errors->has('district_id'))
+                                  <span id="district_id-error" class="error text-danger" for="district_id-name">{{ $errors->first('district_id') }}</span>
+                              @endif
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <label class="col-sm-2 col-form-label">{{ __('Sector') }}</label>
+                      <div class="col-sm-7">
+                          <div class="form-group{{ $errors->has('sector_id') ? ' has-danger' : '' }}">
+                              <select name="sector_id" id="sector_id" class="form-control" required>
+                                  <option value="">--выберите сектор--</option>
+                                  @foreach(\App\User::sectors() as $key => $sector)
+                                      <option value="{{ $key }}">{{ $sector }}</option>
+                                  @endforeach
+                              </select>
+                              @if ($errors->has('sector_id'))
+                                  <span id="sector_id-error" class="error text-danger" for="sector_id-name">{{ $errors->first('sector_id') }}</span>
+                              @endif
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <label class="col-sm-2 col-form-label">{{ __('Role') }}</label>
+                      <div class="col-sm-7">
+                          <div class="form-group{{ $errors->has('roles') ? ' has-danger' : '' }}">
+                              <select name="roles" id="roles" class="form-control" required>
+                                  <option value="">--выберите роль--</option>
+                                  @foreach($roles as $role)
+                                      <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                  @endforeach
+                              </select>
+                              @if ($errors->has('roles'))
+                                  <span id="roles-error" class="error text-danger" for="roles-name">{{ $errors->first('roles') }}</span>
+                              @endif
+                          </div>
+                      </div>
+                  </div>
                 <div class="row">
                   <label class="col-sm-2 col-form-label" for="input-password">{{ __(' Password') }}</label>
                   <div class="col-sm-7">
@@ -71,4 +143,30 @@
       </div>
     </div>
   </div>
+  @push('js')
+      <script !src="">
+          $('#region_id').on('change', function () {
+              var optionSelected = $("option:selected", this);
+              var valueSelected = this.value;
+              // alert(valueSelected);
+              $.ajax({
+                  url: "{{ route('change-districts') }}",
+                  type: 'GET',
+                  data: {
+                      region_id: valueSelected
+                  },
+                  success: function (response) {
+                      console.log(response)
+                      $('#district_id').empty();
+                      $.each(response, function (key, value) {
+                          $('#district_id')
+                              .append($("<option></option>")
+                                  .attr("value",value.id)
+                                  .text(value.name_uz));
+                      })
+                  }
+              })
+          })
+      </script>
+  @endpush
 @endsection

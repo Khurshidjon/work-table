@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBannersTable extends Migration
+class AlterDataCollactionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateBannersTable extends Migration
      */
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::table('data_collection', function (Blueprint $table) {
+            $table->string('table_id')->nullable();
+            $table->string('sector_id')->nullable();
         });
     }
 
@@ -26,6 +26,8 @@ class CreateBannersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::table('data_collection', function (Blueprint $table) {
+            $table->dropColumn('data_collection');
+        });
     }
 }

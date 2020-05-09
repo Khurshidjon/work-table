@@ -30,20 +30,30 @@
     Auth::routes();
 
 
-Route::group(['middleware' => 'auth', 'prefix' => 'superadmin'], function () {
+Route::group(['middleware' => ['auth', 'role:superadmin'], 'prefix' => 'superadmin'], function () {
+    Route::resource('user', 'UserController', ['except' => ['show']]);
+    Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+    Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+    Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+
     Route::resource('tables', 'TableController');
     Route::resource('sections', 'SectionController');
     Route::resource('unit-measurement', 'UnitMeasurementController');
     Route::resource('indicators', 'IndicatorController');
     Route::get('register', 'HomeController@register')->name('register');
-    Route::post('register', 'Auth\RegisterController@register')->name('register.form');
+    Route::post('register/user', 'Auth\RegisterController@register')->name('register.form');
 });
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('data/index', 'DataController@index')->name('data.index');
-    Route::get('data/create/{type}', 'DataController@create')->name('data.create');
-    Route::post('data/submit/{type}', 'DataController@store')->name('data.submit');
-    Route::get('data/{data}/{type}/edit', 'DataController@edit')->name('data.edit');
-    Route::put('data/{data}/{type}/update', 'DataController@update')->name('data.update');
+Route::group(['middleware' => ['auth', 'permission:ko\'rish huquqi']], function () {
+
+    Route::group(['middleware' => 'permission:yaratish huquqi'], function (){
+        Route::get('data/index', 'DataController@index')->name('data.index');
+        Route::get('data/create', 'DataController@create')->name('data.create');
+        Route::post('data/submit', 'DataController@store')->name('data.submit');
+        Route::post('data/{dataCollection}/confirm', 'DataController@confirm')->name('data.confirm');
+        Route::get('data/{dataCollection}/edit', 'DataController@edit')->name('data.edit');
+        Route::get('data/{dataCollection}/show', 'DataController@show')->name('data.show');
+        Route::put('data/{dataCollection}/update', 'DataController@update')->name('data.update');
+    });
 
     Route::get('get-data', 'GetDataController@index')->name('get-data.index');
     Route::get('get-table-data/{table}', 'GetDataController@getTableData')->name('get-data.table');
@@ -57,9 +67,6 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+
 });
 

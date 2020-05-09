@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Region;
 use App\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -26,7 +28,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $regions = Region::all();
+        $roles = Role::all();
+        return view('users.create', [
+            'regions' => $regions,
+            'roles' => $roles,
+        ]);
     }
 
     /**
@@ -38,7 +45,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request, User $model)
     {
-        $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
+        $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all())->assignRole($request->get('roles'));
 
         return redirect()->route('user.index')->withStatus(__('User successfully created.'));
     }

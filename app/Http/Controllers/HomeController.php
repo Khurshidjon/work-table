@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Region;
+use App\User;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $role = Role::findById(3);
+//        Permission::create(['name' => 'ruhsat berish']);
+        $role->givePermissionTo([7]);
         return view('dashboard');
     }
 

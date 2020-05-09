@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="col-lg-8 col-md-6 col-sm-8 ml-auto mr-auto">
-          <form class="form" method="POST" action="{{ route('register.form') }}" autocomplete="off">
+          <form class="form" method="POST" action="{{ route('register.form') }}">
             @csrf
 
             <div class="card card-login card-hidden mb-3">
@@ -64,9 +64,9 @@
                     </div>
                     <input type="text" name="phone" class="form-control" placeholder="{{ __('Phone...') }}" value="{{ old('phone') }}" required>
                   </div>
-                  @if ($errors->has('email'))
-                    <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
-                      <strong>{{ $errors->first('email') }}</strong>
+                  @if ($errors->has('phone'))
+                    <div id="email-error" class="error text-danger pl-3" for="phone" style="display: block;">
+                      <strong>{{ $errors->first('phone') }}</strong>
                     </div>
                   @endif
                 </div>
@@ -116,8 +116,8 @@
                           </div>
                           <select name="roles" id="roles" class="form-control" required>
                               <option value="">--выберите роль--</option>
-                              @foreach(\App\User::roleTypes() as $key => $role)
-                                  <option value="{{ $key }}">{{ $role }}</option>
+                              @foreach(\Spatie\Permission\Models\Role::all() as $role)
+                                  <option value="{{ $role->id }}">{{ $role->name }}</option>
                               @endforeach
                           </select>
                       </div>

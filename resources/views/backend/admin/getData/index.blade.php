@@ -12,10 +12,10 @@
           </div>
           <div class="card-body">
               <div class="container-fluid">
-                  <div class="row justify-content-center text-center">
+                  <div class="row justify-content-center">
                       @forelse($tables as $table)
                           <div class="col-md-12">
-                              <a href="{{ route('get-data.table', ['table' => $table]) }}" class="btn btn-warning">{{ $table->name_uz }}</a>
+                              <a href="{{ route('get-data.table', ['table' => $table]) }}" class="btn btn-info btn-lg">{{ $table->name_uz }}</a>
                           </div>
                       @empty
                           <h2>Table not here</h2>

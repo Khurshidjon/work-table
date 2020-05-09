@@ -19,46 +19,48 @@ class GetDataController extends Controller
     }
     public function getTableData(Table $table)
     {
-        $sectionTop = Section::where('status', 1)->where('table_id', $table->id)->get();
-        $sectionBottom = Section::where('status', 0)->where('table_id', $table->id)->get();
-        $regions = Region::all();
+        $regions = Region::query()->orderBy('id')->get();
+
+        if (!Auth()->user()->hasRole('superadmin') || !Auth()->user()->hasRole('viloyat')){
+            $dataCollections = DataCollection::query()->where('district_id', Auth()->user()->district_id)->where('status', DataCollection::COLLECTION_STATUS_MODERATED)->latest()->paginate(20);
+            $district = District::find(Auth()->user()->district_id);
+            return view('backend.admin.getData.dataResult', [
+                'table' => $table,
+                'district' => $district,
+                'dataCollections' => $dataCollections
+            ]);
+        }
         return view('backend.admin.getData.data', [
             'table' => $table,
-            'sectionTop' => $sectionTop,
-            'sectionBottom' => $sectionBottom,
             'regions' => $regions
         ]);
     }
 
     public function getTableDataRegional(Region $region, Table $table)
     {
-        $sectionTop = Section::where('status', 1)->where('table_id', $table->id)->get();
-        $sectionBottom = Section::where('status', 0)->where('table_id', $table->id)->get();
-        $districts = District::where('region_id', $region->id)->get();
+        if (!Auth()->user()->hasRole('superadmin') || !Auth()->user()->hasRole('viloyat')){
+            $dataCollections = DataCollection::query()->where('district_id', Auth()->user()->district_id)->where('status', DataCollection::COLLECTION_STATUS_MODERATED)->latest()->paginate(20);
+            $district = District::find(Auth()->user()->district_id);
+            return view('backend.admin.getData.dataResult', [
+                'table' => $table,
+                'district' => $district,
+                'dataCollections' => $dataCollections
+            ]);
+        }
+        $districts = District::query()->where('region_id', $region->id)->orderBy('id')->get();
         return view('backend.admin.getData.dataRegional', [
             'table' => $table,
-            'sectionTop' => $sectionTop,
-            'sectionBottom' => $sectionBottom,
             'districts' => $districts,
-
         ]);
     }
 
     public function getTableDataResult(District $district, Table $table)
     {
-        $sectionTop = Section::where('status', 1)->where('table_id', $table->id)->get();
-        $sectionBottom = Section::where('status', 0)->where('table_id', $table->id)->get();
-        $sectionBottom2 = Section::where('status', 2)->where('table_id', $table->id)->get();
-        $cols = Section::where('colspan', 1)->where('table_id', $table->id)->with('data')->get();
-        $dataCollections = DataCollection::all();
-        $district = District::find( $district->id);
+        $dataCollections = DataCollection::query()->where('district_id', $district->id)->where('status', DataCollection::COLLECTION_STATUS_MODERATED)->latest()->paginate(20);
+        $district = District::find($district->id);
         return view('backend.admin.getData.dataResult', [
             'table' => $table,
-            'sectionTop' => $sectionTop,
-            'sectionBottom' => $sectionBottom,
-            'sectionBottom2' => $sectionBottom2,
             'district' => $district,
-            'cols' => $cols,
             'dataCollections' => $dataCollections
         ]);
     }
