@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use App\AgroSupply;
 use App\Data;
 use App\DataCollection;
+use App\DataPoorPopulation;
 use App\District;
 use App\FormOfSupply;
 use App\HelpToCompany;
 use App\Indicator;
 use App\LivestockSupply;
 use App\PoorFamily;
+use App\Quarter;
 use App\Region;
 use App\Section;
+use App\Table;
 use App\UnitMeasurement;
+use Facade\Ignition\Tabs\Tab;
 use Illuminate\Http\Request;
 
 class DataController extends Controller
@@ -25,11 +29,31 @@ class DataController extends Controller
      */
     public function index()
     {
-        $dataRegion = DataCollection::query()->where('region_id', \Auth::user()->region_id)->where('district_id', \Auth::user()->district_id)->where('sector_id', \Auth::user()->sector_id)->latest()->paginate(20);
-        return view('backend.sectors.data.index', [
-            'dataRegion' => $dataRegion,
-//            'dataSahovat' => $dataSahovat,
+        $tables = Table::all();
+        return view('backend.sectors.index-table', [
+            'tables' => $tables,
         ]);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function dataList(Table $table)
+    {
+        if ($table->id == Table::TABLE_ONE){
+            $dataRegion = DataCollection::query()->where('region_id', \Auth::user()->region_id)->where('district_id', \Auth::user()->district_id)->where('sector_id', \Auth::user()->sector_id)->latest()->paginate(20);
+            return view('backend.sectors.data.index', [
+                'dataRegion' => $dataRegion,
+                'table' => $table
+            ]);
+        }else{
+            $data = DataPoorPopulation::query()->latest()->paginate(20);
+            return view('backend.sectors.poor-population.index', [
+                'data' => $data,
+                'table' => $table
+            ]);
+        }
     }
 
     /**
@@ -37,21 +61,22 @@ class DataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Table $table)
     {
         $regions = Region::all();
         return view('backend.sectors.data.create', [
-            'regions' => $regions
+            'regions' => $regions,
+            'table' => $table
         ]);
     }
 
-    /**
+        /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Table $table)
     {
         $data_collection = new DataCollection();
         $data_collection->title = $request->company_name;
@@ -112,7 +137,7 @@ class DataController extends Controller
 //            $help_to_company->save();
         }
 
-        return redirect()->route('data.index')->with('success', 'Section has been created successfully');
+        return redirect()->route('data.list', [$table])->with('success', 'Section has been created successfully');
     }
 
     /**
@@ -121,7 +146,7 @@ class DataController extends Controller
      * @param  \App\DataCollection  $dataCollection
      * @return \Illuminate\Http\Response
      */
-    public function show(DataCollection $dataCollection)
+    public function show(DataCollection $dataCollection, Table $table)
     {
         $regions = Region::all();
         $district = District::find($dataCollection->district_id);
@@ -129,7 +154,8 @@ class DataController extends Controller
         return view('backend.sectors.data.show', [
             'regions' => $regions,
             'dataCollection' => $dataCollection,
-            'district' => $district
+            'district' => $district,
+            'table' => $table
         ]);
     }
 
@@ -139,7 +165,7 @@ class DataController extends Controller
      * @param  \App\DataCollection  $dataCollection
      * @return \Illuminate\Http\Response
      */
-    public function edit(DataCollection $dataCollection)
+    public function edit(DataCollection $dataCollection, Table $table)
     {
         $this->authorize('update', $dataCollection);
         $regions = Region::all();
@@ -148,7 +174,8 @@ class DataController extends Controller
         return view('backend.sectors.data.edit', [
             'regions' => $regions,
             'dataCollection' => $dataCollection,
-            'district' => $district
+            'district' => $district,
+            'table' => $table
         ]);
     }
 
@@ -159,7 +186,7 @@ class DataController extends Controller
      * @param  \App\DataCollection  $dataCollection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DataCollection $dataCollection)
+    public function update(Request $request, DataCollection $dataCollection, Table $table)
     {
         $this->authorize('update', $dataCollection);
 
@@ -221,7 +248,7 @@ class DataController extends Controller
 //            $help_to_company->data_collection_id = $dataCollection->id;
 //            $help_to_company->update();
         }
-        return redirect()->route('data.index')->with('success', 'Section has been updated successfully');
+        return redirect()->route('data.list', [$table])->with('success', 'Section has been updated successfully');
     }
 
     /**
@@ -241,7 +268,7 @@ class DataController extends Controller
      * @param  \App\Data  $data
      * @return \Illuminate\Http\Response
      */
-    public function confirm(DataCollection $dataCollection, Request $request)
+    public function confirm(DataCollection $dataCollection, Request $request, Table $table)
     {
 //        dd($request->status);
         if ($request->status == 'published'){
@@ -251,7 +278,7 @@ class DataController extends Controller
         }
         $dataCollection->update();
         if ($request->currentPage){
-            return redirect('data/index?page='.$request->currentPage)->with('success', 'Section has been updated successfully');
+            return redirect('data/index-list/'.$table->id.'?page='.$request->currentPage)->with('success', 'Section has been updated successfully');
         }else{
             return redirect()->route('data.index')->with('success', 'Section has been updated successfully');
         }
@@ -266,5 +293,17 @@ class DataController extends Controller
     {
         $districts = District::where('region_id', $request->region_id)->get();
         return response()->json($districts);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Data  $data
+     * @return \Illuminate\Http\Response
+     */
+    public function changeQuarter(Request $request)
+    {
+        $quarters = Quarter::where('district_id', $request->district_id)->get();
+        return response()->json($quarters);
     }
 }

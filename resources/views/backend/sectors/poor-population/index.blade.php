@@ -28,7 +28,7 @@
                 @endif
                 <div class="row">
                     <div class="col-12 text-right">
-                        <a href="{{ route('data.create', [$table]) }}" class="btn btn-sm btn-success">{{ __('Добавить новый') }}</a>
+                        <a href="{{ route('data.poor-population', [$table]) }}" class="btn btn-sm btn-success">{{ __('Добавить новый') }}</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -59,13 +59,13 @@
                         @php
                             $id = 1;
                         @endphp
-                        @forelse($dataRegion as $item)
+                        @forelse($data as $item)
                             <tr>
                                 <td>
                                     {{ $id++ }}
                                 </td>
                                 <td>
-                                    {{ $item->title }}
+                                    {{ $item->value }}
                                 </td>
                                 <td>
                                     {{ $item->region->name_uz }}
@@ -74,20 +74,20 @@
                                     {{ $item->districts->name_uz }}
                                 </td>
                                 <td>
-                                    @if($item->status == \App\DataCollection::COLLECTION_STATUS_NEW)
-                                        <span class="badge badge-info">{{  \App\DataCollection::statusAttribute()[$item->status] }}</span>
-                                    @elseif($item->status == \App\DataCollection::COLLECTION_STATUS_CANCELLED)
-                                        <span class="badge badge-danger">{{  \App\DataCollection::statusAttribute()[$item->status] }}</span>
-                                    @elseif($item->status == \App\DataCollection::COLLECTION_STATUS_MODERATED)
-                                        <span class="badge badge-success">{{  \App\DataCollection::statusAttribute()[$item->status] }}</span>
+                                    @if($item->status == \App\DataPoorPopulation::STATUS_NEW)
+                                        <span class="badge badge-info">{{  \App\DataPoorPopulation::statusAttribute()[$item->status] }}</span>
+                                    @elseif($item->status == \App\DataPoorPopulation::STATUS_CANCELLED)
+                                        <span class="badge badge-danger">{{  \App\DataPoorPopulation::statusAttribute()[$item->status] }}</span>
+                                    @elseif($item->status == \App\DataPoorPopulation::STATUS_MODERATED)
+                                        <span class="badge badge-success">{{  \App\DataPoorPopulation::statusAttribute()[$item->status] }}</span>
                                     @endif
                                 </td>
                                 <td class="text-primary text-center">
-                                    <a href="{{ route('data.show', ['dataCollection' => $item, 'table' => $table]) }}" type="button" rel="tooltip" title="Предварительный просмотр" class="btn btn-warning btn-link btn-sm">
+                                    <a href="{{ route('data-poor-population.show', ['dataPoorPopulation' => $item, 'table' => $table]) }}" type="button" rel="tooltip" title="Предварительный просмотр" class="btn btn-warning btn-link btn-sm">
                                         <i class="material-icons">visibility</i>
                                     </a>
                                     @if($item->user_id == Auth::user()->id)
-                                    <a href="{{ route('data.edit', ['dataCollection' => $item, 'table' => $table]) }}" type="button" rel="tooltip" title="Редактировать" class="btn btn-primary btn-link btn-sm">
+                                    <a href="{{ route('data-poor-population.edit', ['dataPoorPopulation' => $item, 'table' => $table]) }}" type="button" rel="tooltip" title="Редактировать" class="btn btn-primary btn-link btn-sm">
                                         <i class="material-icons">edit</i>
                                     </a>
                                     @endif
@@ -99,17 +99,17 @@
                                     @can('ruhsat berish')
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
-                                                <form action="{{ route('data.confirm', ['dataCollection' => $item, 'table' => $table]) }}" method="post">
+                                                <form action="{{ route('data-poor-population.confirm', ['dataPoorPopulation' => $item, 'table' => $table]) }}" method="post">
                                                     @csrf
-                                                    <input type="hidden" name="currentPage" value="{{ $dataRegion->currentPage()  }}">
+                                                    <input type="hidden" name="currentPage" value="{{ $data->currentPage()  }}">
                                                     <input type="hidden" name="status" value="unpublished">
                                                     <button type="submit" class="btn btn-sm btn-primary">Отменить публикацию</button>
                                                 </form>
                                             </li>
                                             <li class="list-inline-item">
-                                                <form action="{{ route('data.confirm', ['dataCollection' => $item, 'table' => $table]) }}" method="post">
+                                                <form action="{{ route('data-poor-population.confirm', ['dataPoorPopulation' => $item, 'table' => $table]) }}" method="post">
                                                     @csrf
-                                                    <input type="hidden" name="currentPage" value="{{ $dataRegion->currentPage()  }}">
+                                                    <input type="hidden" name="currentPage" value="{{ $data->currentPage()  }}">
                                                     <input type="hidden" name="status" value="published">
                                                     <button type="submit" class="btn btn-sm btn-primary">Публиковать</button>
                                                 </form>
@@ -128,7 +128,7 @@
                         </tbody>
                     </table>
                 </div>
-                {{ $dataRegion->links() }}
+                {{ $data->links() }}
             </div>
         </div>
     </div>

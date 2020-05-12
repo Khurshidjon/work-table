@@ -2,32 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67ba2c93-eeb9-4920-92eb-6cef4376fb9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataResultRegional.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/sectors/index-table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/sectors/poor-population/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/sectors/poor-population/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataCollection.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/District.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/District.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DataController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GetDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GetDataController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_17_070309_create_banners_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_194429_create_data_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/data.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/data.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataRegional.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataRegional.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Indicator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Indicator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Table.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DataSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DataSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataResult.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataResult.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/superadmin/registration/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/superadmin/registration/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +165,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/sectors/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/sectors/poor-population" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -181,11 +176,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/backend/sectors/poor-population" />
       <recent name="$PROJECT_DIR$/resources/views/backend/sectors/data" />
-      <recent name="$PROJECT_DIR$/resources/views/backend/superadmin/registration" />
       <recent name="$PROJECT_DIR$/resources/views/backend/admin/getData" />
+      <recent name="$PROJECT_DIR$/resources/views/backend/superadmin/registration" />
       <recent name="$PROJECT_DIR$/resources/views/backend/superadmin/units" />
-      <recent name="$PROJECT_DIR$/resources/views/backend/superadmin/indicators" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/backend/sectors" />
+      <recent name="$PROJECT_DIR$/resources/views/backend/sectors/poor-population" />
     </key>
   </component>
   <component name="RunManager">
@@ -214,7 +213,9 @@
       <workItem from="1588741728315" duration="56916000" />
       <workItem from="1588913277355" duration="3000" />
       <workItem from="1588924637103" duration="21101000" />
-      <workItem from="1589018040188" duration="9436000" />
+      <workItem from="1589018040188" duration="33276000" />
+      <workItem from="1589261720950" duration="9940000" />
+      <workItem from="1589274316524" duration="11248000" />
     </task>
     <servers />
   </component>
@@ -226,21 +227,21 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="591" y="215" width="800" height="684" key="#Notifications/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1587848857516" />
-    <state x="729" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589024009324">
+    <state x="729" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589274358741">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="729" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589024009324" />
+    <state x="729" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589274358741" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1581597319365">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581597319365" />
-    <state x="660" y="252" key="run.anything.popup" timestamp="1589023249008">
+    <state x="660" y="252" width="672" height="677" key="run.anything.popup" timestamp="1589280422065">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="660" y="252" key="run.anything.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589023249008" />
-    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1589024271485">
+    <state x="660" y="252" width="672" height="677" key="run.anything.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589280422065" />
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1589287043507">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589024271485" />
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589287043507" />
   </component>
 </project>

@@ -83,6 +83,19 @@
                       </div>
                   </div>
                   <div class="row">
+                      <label class="col-sm-2 col-form-label">{{ __('Quarter') }}</label>
+                      <div class="col-sm-7">
+                          <div class="form-group{{ $errors->has('quarter_id') ? ' has-danger' : '' }}">
+                              <select name="quarter_id" id="quarter_id" class="form-control" required>
+                                  <option value="">--выберите район--</option>
+                              </select>
+                              @if ($errors->has('district_id'))
+                                  <span id="quarter_id-error" class="error text-danger" for="quarter_id-name">{{ $errors->first('quarter_id') }}</span>
+                              @endif
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
                       <label class="col-sm-2 col-form-label">{{ __('Sector') }}</label>
                       <div class="col-sm-7">
                           <div class="form-group{{ $errors->has('sector_id') ? ' has-danger' : '' }}">
@@ -165,8 +178,32 @@
                                   .text(value.name_uz));
                       })
                   }
-              })
+              });
           })
+
+          $('#district_id').on('change', function () {
+              var optionSelected = $("option:selected", this);
+              var valueSelected = this.value;
+              // alert(valueSelected);
+              $.ajax({
+                  url: "{{ route('change-quarter') }}",
+                  type: 'GET',
+                  data: {
+                      district_id: valueSelected
+                  },
+                  success: function (response) {
+                      console.log(response);
+                      $('#quarter_id').empty();
+                      $.each(response, function (key, value) {
+                          $('#quarter_id')
+                              .append($("<option></option>")
+                                  .attr("value",value.id)
+                                  .text(value.name_uz));
+                      })
+                  }
+              });
+          })
+
       </script>
   @endpush
 @endsection

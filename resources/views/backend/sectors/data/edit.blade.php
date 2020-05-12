@@ -12,11 +12,11 @@
                         </div>
                         <div class="row">
                             <div class="col-12 text-right">
-                                <a href="{{ route('data.index') }}" class="btn btn-sm btn-info">{{ __('Вернуться в список') }}</a>
+                                <a href="{{ route('data.list', [$table]) }}" class="btn btn-sm btn-info">{{ __('Вернуться в список') }}</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('data.update', ['dataCollection' => $dataCollection]) }}" method="post" autocomplete="off">
+                            <form action="{{ route('data.update', ['dataCollection' => $dataCollection, 'table' => $table]) }}" method="post" autocomplete="off">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">

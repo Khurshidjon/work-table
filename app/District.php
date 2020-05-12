@@ -10,4 +10,8 @@ class District extends Model
     {
         return $this->hasOne(Region::class, 'id', 'region_id');
     }
+    public function quarter()
+    {
+        return $this->belongsTo(Quarter::class, 'id', 'district_id');
+    }
 }

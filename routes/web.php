@@ -47,12 +47,20 @@ Route::group(['middleware' => ['auth', 'permission:ko\'rish huquqi']], function 
 
     Route::group(['middleware' => 'permission:yaratish huquqi'], function (){
         Route::get('data/index', 'DataController@index')->name('data.index');
-        Route::get('data/create', 'DataController@create')->name('data.create');
+        Route::get('data/index-list/{table}', 'DataController@dataList')->name('data.list');
+        Route::get('data/create/{table}', 'DataController@create')->name('data.create');
         Route::post('data/submit', 'DataController@store')->name('data.submit');
-        Route::post('data/{dataCollection}/confirm', 'DataController@confirm')->name('data.confirm');
-        Route::get('data/{dataCollection}/edit', 'DataController@edit')->name('data.edit');
-        Route::get('data/{dataCollection}/show', 'DataController@show')->name('data.show');
-        Route::put('data/{dataCollection}/update', 'DataController@update')->name('data.update');
+        Route::post('data/{dataCollection}/{table}/confirm', 'DataController@confirm')->name('data.confirm');
+        Route::get('data/{dataCollection}/{table}/edit', 'DataController@edit')->name('data.edit');
+        Route::get('data/{dataCollection}/{table}/show', 'DataController@show')->name('data.show');
+        Route::put('data/{dataCollection}/{table}/update', 'DataController@update')->name('data.update');
+
+        Route::get('data/create-poor-population/{table?}', 'DataPoorPopulationController@create')->name('data.poor-population');
+        Route::post('data-poor-population/{table}/submit', 'DataPoorPopulationController@store')->name('data-poor-population.submit');
+        Route::post('data-poor-population/{dataPoorPopulation}/{table}/confirm', 'DataPoorPopulationController@confirm')->name('data-poor-population.confirm');
+        Route::get('data-poor-population/{dataPoorPopulation}/{table}/edit', 'DataPoorPopulationController@edit')->name('data-poor-population.edit');
+        Route::get('data-poor-population/{dataPoorPopulation}/{table}/show', 'DataPoorPopulationController@show')->name('data-poor-population.show');
+        Route::put('data-poor-population/{dataPoorPopulation}/{table}/update', 'DataPoorPopulationController@update')->name('data-poor-population.update');
     });
 
     Route::get('get-data', 'GetDataController@index')->name('get-data.index');
@@ -60,6 +68,7 @@ Route::group(['middleware' => ['auth', 'permission:ko\'rish huquqi']], function 
     Route::get('get-table-data-regional/{region}/{table}', 'GetDataController@getTableDataRegional')->name('get-data-regional.index');
     Route::get('get-table-data-result/{district}/{table}', 'GetDataController@getTableDataResult')->name('get-data-result.index');
     Route::get('change-districts', 'DataController@changeDistricts')->name('change-districts');
+    Route::get('change-quarter', 'DataController@changeQuarter')->name('change-quarter');
 
     Route::get('notifications', function () {
 		return view('pages.notifications');

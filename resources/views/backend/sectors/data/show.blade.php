@@ -12,7 +12,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12 text-right">
-                                <a href="{{ route('data.index') }}" class="btn btn-sm btn-info">{{ __('Вернуться в список') }}</a>
+                                <a href="{{ route('data.list', [$table]) }}" class="btn btn-sm btn-info">{{ __('Вернуться в список') }}</a>
                             </div>
                         </div>
                         <div class="card-body">
