@@ -48,6 +48,9 @@
                                     District
                                 </th>
                                 <th>
+                                    Quarter
+                                </th>
+                                <th>
                                     Status
                                 </th>
                                 <th class="text-center">
@@ -72,6 +75,9 @@
                                 </td>
                                 <td>
                                     {{ $item->districts->name_uz }}
+                                </td>
+                                <td>
+                                    {{ $item->quarter!=null?$item->quarter->name_uz:'' }}
                                 </td>
                                 <td>
                                     @if($item->status == \App\DataPoorPopulation::STATUS_NEW)

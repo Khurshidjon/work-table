@@ -22,7 +22,7 @@ class GetDataController extends Controller
     public function getTableData(Table $table)
     {
         if ($table->id == Table::TABLE_ONE){
-            $regions = Region::query()->orderBy('id')->get();
+            $regions = Region::query()->orderByDesc('id')->get();
             if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('viloyat')){
                 return view('backend.admin.getData.data', [
                     'table' => $table,

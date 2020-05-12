@@ -2,28 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67ba2c93-eeb9-4920-92eb-6cef4376fb9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataResultRegional.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/sectors/index-table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/sectors/poor-population/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/sectors/poor-population/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/District.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/District.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DataController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GetDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GetDataController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Indicator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Indicator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Table.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DataSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DataSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataResult.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataResult.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/data.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/data.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataRegional.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/dataRegional.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/poor-population/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/poor-population/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +200,7 @@
       <workItem from="1588924637103" duration="21101000" />
       <workItem from="1589018040188" duration="33276000" />
       <workItem from="1589261720950" duration="9940000" />
-      <workItem from="1589274316524" duration="11248000" />
+      <workItem from="1589274316524" duration="15549000" />
     </task>
     <servers />
   </component>
@@ -239,9 +224,9 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="660" y="252" width="672" height="677" key="run.anything.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589280422065" />
-    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1589287043507">
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1589294613807">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589287043507" />
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589294613807" />
   </component>
 </project>

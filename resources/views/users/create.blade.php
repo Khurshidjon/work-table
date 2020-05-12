@@ -87,7 +87,7 @@
                       <div class="col-sm-7">
                           <div class="form-group{{ $errors->has('quarter_id') ? ' has-danger' : '' }}">
                               <select name="quarter_id" id="quarter_id" class="form-control" required>
-                                  <option value="">--выберите район--</option>
+                                  <option value="">--выберите махалля--</option>
                               </select>
                               @if ($errors->has('district_id'))
                                   <span id="quarter_id-error" class="error text-danger" for="quarter_id-name">{{ $errors->first('quarter_id') }}</span>
@@ -193,7 +193,7 @@
                   },
                   success: function (response) {
                       console.log(response);
-                      $('#quarter_id').empty();
+                      $('#quarter_id').empty().append("<option value=''>-- выберите махалля --</option>");
                       $.each(response, function (key, value) {
                           $('#quarter_id')
                               .append($("<option></option>")
