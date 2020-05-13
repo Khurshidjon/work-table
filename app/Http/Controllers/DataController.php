@@ -105,10 +105,6 @@ class DataController extends Controller
         $form_of_supply->money_transfer = $request->money_transfer;
         $form_of_supply->foods = $request->foods;
         $form_of_supply->employment = $request->employment;
-        $form_of_supply->training = json_encode([
-            'trainees_count' => $request->trainees_count,
-            'teach_type' => $request->teach_type,
-        ]);
         $form_of_supply->data_collection_id = $data_collection->id;
 
         if ($form_of_supply->save()){
@@ -226,10 +222,6 @@ class DataController extends Controller
         $form_of_supply->money_transfer = $request->money_transfer;
         $form_of_supply->foods = $request->foods;
         $form_of_supply->employment = $request->employment;
-        $form_of_supply->training = json_encode([
-            'trainees_count' => $request->trainees_count,
-            'teach_type' => $request->teach_type,
-        ]);
         $form_of_supply->data_collection_id = $dataCollection->id;
 
         if ($form_of_supply->update()){
