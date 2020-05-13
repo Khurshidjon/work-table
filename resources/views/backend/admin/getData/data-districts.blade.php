@@ -49,9 +49,9 @@
                       @php
                         $id = 1;
                       @endphp
-                      @foreach($regions as $region)
+                      @foreach($districts as $district)
                           @php
-                            $dataCollection = \App\DataCollection::query()->where('region_id', $region->id)->select('id')->get()->toArray();
+                            $dataCollection = \App\DataCollection::query()->where('district_id', $district->id)->select('id')->get()->toArray();
                             $poor_families = \App\PoorFamily::query()->whereIn('data_collection_id', $dataCollection);
                             $form_of_supply = \App\FormOfSupply::query()->whereIn('data_collection_id', $dataCollection);
                             $forLiveStock = $form_of_supply->select('id')->get()->toArray();
@@ -61,7 +61,7 @@
                           @endphp
                           <tr class="text-center">
                               <td>{{ $id++ }}</td>
-                              <th><a class="font-weight-bold" href="{{ route('get-data-regional.index', [$region, $table]) }}">{{ $region->name_uz }}</a></th>
+                              <th><a class="font-weight-bold" href="{{ route('get-data-result.index', [$district, $table]) }}">{{ $district->name_uz }}</a></th>
                               <td>{{ $poor_families->sum('unemployed_count') }}</td>
                               <td>{{ $poor_families->sum('disable_people_count') }}</td>
                               <td>{{ $poor_families->sum('low_income_families_count') }}</td>

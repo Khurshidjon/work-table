@@ -107,6 +107,17 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group my-4">
+                                                                <label for="trainees_count">Касб-ҳунарга (тил) ўқитиш ёрдамида (киши, тури)</label>
+                                                                <div class="row">
+                                                                    <div class="col-md-6 my-3">
+                                                                        <input type="number" id="trainees_count" class="form-control" name="trainees_count" placeholder="trainees count" value="{{ old('trainees_count', $dataCollection->updateFormOfSupplies->updateProfession->trainees_count) }}">
+                                                                    </div>
+                                                                    <div class="col-md-6 my-3">
+                                                                        <input type="text" id="teach_type" class="form-control" name="teach_type" placeholder="teach_type" value="{{ old('teach_type', $dataCollection->updateFormOfSupplies->updateProfession->teach_type) }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                     {{--       <div class="form-group my-4">
                                                                 <label for="training">Касб-ҳунарга (тил) ўқитиш ёрдамида (киши, тури)</label>
                                                                 <div class="row">
                                                                     <div class="col-md-6 my-3">
@@ -116,7 +127,7 @@
                                                                         <input type="text" id="teach_type" class="form-control" name="teach_type" placeholder="касб ёки тил" value="{{ old('teach_type', json_decode($dataCollection->updateFormOfSupplies->training)[0]->teach_type) }}">
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div>--}}
                                                         </div>
                                                     </div>
                                              {{--       <div class="form-group mt-5">

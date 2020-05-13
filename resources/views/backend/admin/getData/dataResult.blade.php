@@ -101,8 +101,8 @@
                                 <td>{{ $data->foods }}</td>
                                 <td>{{ $data->employment }}</td>
                                 <td>
-                                    @foreach(json_decode($data->training) as $employment)
-                                            {{ $employment->trainees_count . ' киши, ' . $employment->teach_type }}
+                                    @foreach($data->profession as $profession)
+                                        <span>{{ $profession->trainees_count .'  '. $profession->teach_type}}</span>
                                     @endforeach
                                 </td>
                                 @foreach($data->liveStockSupplies as $liveStock)

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFormOfSuppliesTable extends Migration
+class CreateProfessionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateFormOfSuppliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('form_of_supplies', function (Blueprint $table) {
+        Schema::create('professions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('cash')->nullable();
-            $table->string('money_transfer')->nullable();
-            $table->string('foods')->nullable();
-            $table->string('employment')->nullable();
-            $table->integer('data_collection_id')->nullable();
+            $table->string('trainees_count')->nullable();
+            $table->string('teach_type')->nullable();
+            $table->integer('form_of_supply_id')->nullable();
+            $table->integer('data_collection_id');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateFormOfSuppliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_of_supplies');
+        Schema::dropIfExists('professions');
     }
 }

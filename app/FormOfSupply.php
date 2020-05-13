@@ -20,6 +20,11 @@ class FormOfSupply extends Model
         return $this->hasMany(AgroSupply::class, 'form_of_supply_id', 'id');
     }
 
+    public function profession()
+    {
+        return $this->hasMany(Profession::class, 'form_of_supply_id', 'id');
+    }
+
     public function updateLivestockSupply()
     {
         return $this->belongsTo(LivestockSupply::class, 'id', 'form_of_supply_id');
@@ -28,5 +33,10 @@ class FormOfSupply extends Model
     public function updateAgroSupply()
     {
         return $this->belongsTo(AgroSupply::class, 'id', 'form_of_supply_id');
+    }
+
+    public function updateProfession()
+    {
+        return $this->belongsTo(Profession::class, 'id', 'form_of_supply_id');
     }
 }

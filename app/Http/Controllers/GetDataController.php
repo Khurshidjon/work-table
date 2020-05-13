@@ -52,7 +52,7 @@ class GetDataController extends Controller
         if ($table->id == Table::TABLE_ONE){
             if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('viloyat')){
                 $districts = District::query()->where('region_id', $region->id)->orderBy('id')->get();
-                return view('backend.admin.getData.dataRegional', [
+                return view('backend.admin.getData.data-districts', [
                     'table' => $table,
                     'districts' => $districts,
                 ]);

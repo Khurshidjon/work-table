@@ -12,6 +12,7 @@ use App\HelpToCompany;
 use App\Indicator;
 use App\LivestockSupply;
 use App\PoorFamily;
+use App\Profession;
 use App\Quarter;
 use App\Region;
 use App\Section;
@@ -104,13 +105,22 @@ class DataController extends Controller
         $form_of_supply->money_transfer = $request->money_transfer;
         $form_of_supply->foods = $request->foods;
         $form_of_supply->employment = $request->employment;
-        $form_of_supply->training = json_encode(array([
+        $form_of_supply->training = json_encode([
             'trainees_count' => $request->trainees_count,
             'teach_type' => $request->teach_type,
-        ]));
+        ]);
         $form_of_supply->data_collection_id = $data_collection->id;
 
         if ($form_of_supply->save()){
+//        Касб-ҳунарга (тил) ўқитиш ёрдамида (киши, тури)
+
+            $profession = new Profession();
+            $profession->trainees_count = $request->trainees_count;
+            $profession->teach_type = $request->teach_type;
+            $profession->form_of_supply_id = $form_of_supply->id;
+            $profession->data_collection_id = $data_collection->id;
+            $profession->save();
+
 //        Chorva mollari bilan yordam
 
             $livestock_supply = new LivestockSupply();
@@ -216,10 +226,10 @@ class DataController extends Controller
         $form_of_supply->money_transfer = $request->money_transfer;
         $form_of_supply->foods = $request->foods;
         $form_of_supply->employment = $request->employment;
-        $form_of_supply->training = json_encode(array([
+        $form_of_supply->training = json_encode([
             'trainees_count' => $request->trainees_count,
             'teach_type' => $request->teach_type,
-        ]));
+        ]);
         $form_of_supply->data_collection_id = $dataCollection->id;
 
         if ($form_of_supply->update()){
@@ -241,6 +251,14 @@ class DataController extends Controller
             $agro_supply->form_of_supply_id = $form_of_supply->id;
             $agro_supply->data_collection_id = $dataCollection->id;
             $agro_supply->update();
+//        Agrar yordam
+
+            $profession = $dataCollection->updateFormOfSupplies->updateProfession;
+            $profession->trainees_count = $request->trainees_count;
+            $profession->teach_type = $request->teach_type;
+            $profession->form_of_supply_id = $form_of_supply->id;
+            $profession->data_collection_id = $dataCollection->id;
+            $profession->update();
 
 //            $help_to_company = new HelpToCompany();
 //            $help_to_company->value = $request->help_title;
