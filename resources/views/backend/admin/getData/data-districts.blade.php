@@ -1,6 +1,11 @@
 @extends('layouts.app', ['activePage' => 'getData', 'titlePage' => __('Table List')])
 
 @section('content')
+    <style>
+        .table-row td{
+            text-align: center;
+        }
+    </style>
     @php
         use App\DataCollection;
     @endphp
@@ -59,7 +64,7 @@
                             $agroSupply = \App\AgroSupply::query()->whereIn('form_of_supply_id', $forLiveStock);
                             $profession = \App\Profession::query()->whereIn('form_of_supply_id', $forLiveStock);
                           @endphp
-                          <tr class="text-center">
+                          <tr class="table-row">
                               <td>{{ $id++ }}</td>
                               <th><a class="font-weight-bold" href="{{ route('get-data-result.index', [$district, $table]) }}">{{ $district->name_uz }}</a></th>
                               <td>{{ $poor_families->sum('unemployed_count') }}</td>

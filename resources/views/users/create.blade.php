@@ -16,7 +16,7 @@
               </div>
               <div class="card-body ">
                 <div class="row">
-                  <div class="col-md-12 text-right">
+                  <div class="col-md-12 text-righcoopert">
                       <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
                   </div>
                 </div>
@@ -82,7 +82,7 @@
                           </div>
                       </div>
                   </div>
-                  <div class="row">
+                 {{-- <div class="row">
                       <label class="col-sm-2 col-form-label">{{ __('Quarter') }}</label>
                       <div class="col-sm-7">
                           <div class="form-group{{ $errors->has('quarter_id') ? ' has-danger' : '' }}">
@@ -94,8 +94,8 @@
                               @endif
                           </div>
                       </div>
-                  </div>
-                  <div class="row">
+                  </div>--}}
+             {{--     <div class="row">
                       <label class="col-sm-2 col-form-label">{{ __('Sector') }}</label>
                       <div class="col-sm-7">
                           <div class="form-group{{ $errors->has('sector_id') ? ' has-danger' : '' }}">
@@ -110,7 +110,7 @@
                               @endif
                           </div>
                       </div>
-                  </div>
+                  </div>--}}
                   <div class="row">
                       <label class="col-sm-2 col-form-label">{{ __('Role') }}</label>
                       <div class="col-sm-7">
@@ -170,7 +170,7 @@
                   },
                   success: function (response) {
                       console.log(response)
-                      $('#district_id').empty();
+                      $('#district_id').empty().append("<option value=''>-- выберите район --</option>");
                       $.each(response, function (key, value) {
                           $('#district_id')
                               .append($("<option></option>")

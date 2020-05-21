@@ -16,7 +16,7 @@ class GetDataController extends Controller
 {
     public function index()
     {
-        $tables = Table::where('status', 1)->get();
+        $tables = Table::query()->where('status', Table::TABLE_STATUS_ACTIVE)->get();
         return view('backend.admin.getData.index', compact('tables'));
     }
     public function getTableData(Table $table)
@@ -65,9 +65,6 @@ class GetDataController extends Controller
                 'dataCollections' => $dataCollections
             ]);
         }elseif ($table->id == Table::TABLE_TWO){
-//            $district = District::find(Auth()->user()->district_id);
-//            $district = Region::query()->where('region_id', $region->id)->first();
-//            dd($district);
             $indicators = Indicator::query()->where('status', 1)->where('parent_id', null)->get();
             return view('backend.admin.getData.dataResultRegional', [
                 'table' => $table,

@@ -49,7 +49,7 @@ Route::group(['middleware' => ['auth', 'permission:ko\'rish huquqi']], function 
         Route::get('data/index', 'DataController@index')->name('data.index');
         Route::get('data/index-list/{table}', 'DataController@dataList')->name('data.list');
         Route::get('data/create/{table}', 'DataController@create')->name('data.create');
-        Route::post('data/submit', 'DataController@store')->name('data.submit');
+        Route::post('data/submit/{table}', 'DataController@store')->name('data.submit');
         Route::post('data/{dataCollection}/{table}/confirm', 'DataController@confirm')->name('data.confirm');
         Route::get('data/{dataCollection}/{table}/edit', 'DataController@edit')->name('data.edit');
         Route::get('data/{dataCollection}/{table}/show', 'DataController@show')->name('data.show');
