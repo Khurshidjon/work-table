@@ -7,8 +7,12 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Simple Table</h4>
-            <p class="card-category">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+              <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                      <h4 class="card-title ">{{ __('Саҳоват ва кўмак') }}</h4>
+                      <p class="card-category"> {{ __('Бу ерда сиз керкли жадвални танлашингиз мумкин') }}</p>
+                  </div>
+              </div>
           </div>
           <div class="card-body">
               <div class="container-fluid">

@@ -83,14 +83,14 @@
             <li class="nav-item{{ $activePage == 'data' ? ' active' : '' }}">
                 <a class="nav-link" href="{{ route('data.index') }}">
                     <i class="material-icons">lists</i>
-                    <p>{{ __('Ввод данных') }}</p>
+                    <p>{{ __('Маълумотлар бошқаруви') }}</p>
                 </a>
             </li>
         @endcan
       <li class="nav-item{{ $activePage == 'getData' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('get-data.index') }}">
           <i class="material-icons">lists</i>
-            <p>{{ __('Просмотр информации') }}</p>
+            <p>{{ __('Жадвалда кўриш') }}</p>
         </a>
       </li>
       {{--<li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">

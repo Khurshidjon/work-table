@@ -9,8 +9,8 @@
                 <div class="card-header card-header-tabs card-header-primary">
                     <div class="nav-tabs-navigation">
                         <div class="nav-tabs-wrapper">
-                            <h4 class="card-title ">{{ __('Users') }}</h4>
-                            <p class="card-category"> {{ __('Here you can manage users') }}</p>
+                            <h4 class="card-title ">{{ __('Саҳоват ва кўмак') }}</h4>
+                            <p class="card-category"> {{ __('Бу ерда сиз киритга маълумотларингизни бошқаришингиз мумкин') }}</p>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 @endif
                 <div class="row">
                     <div class="col-12 text-right">
-                        <a href="{{ route('data.create', [$table]) }}" class="btn btn-sm btn-success">{{ __('Добавить новый') }}</a>
+                        <a href="{{ route('data.create', [$table]) }}" class="btn btn-sm btn-success">{{ __('Янги қўшиш') }}</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -39,19 +39,19 @@
                                     ID
                                 </th>
                                 <th>
-                                    Title
+                                    Корхона номи
                                 </th>
                                 <th>
-                                    Region
+                                    Вилоят
                                 </th>
                                 <th>
-                                    District
+                                    Туман
                                 </th>
                                 <th>
-                                    Status
+                                    Ҳолат
                                 </th>
                                 <th class="text-center">
-                                    Actions
+                                    Ҳаракатлар
                                 </th>
                             </tr>
                         </thead>
@@ -121,7 +121,7 @@
                         @empty
                             <tr>
                                 <td colspan="6" class="text-center">
-                                    No records
+                                    Маълумот топилмади
                                 </td>
                             </tr>
                         @endforelse

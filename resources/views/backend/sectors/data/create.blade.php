@@ -7,8 +7,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Simple Table</h4>
-            <p class="card-category">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, vitae.</p>
+            <h4 class="card-title font-weight-bold">Маълумотлар йиғиш</h4>
+            <p class="card-category">Ўз ҳудудингизга тегишли маълумотнигина киритиш имконига эгасиз</p>
           </div>
           <div class="card-body">
               <form action="{{ route('data.submit', [$table]) }}" method="post" autocomplete="off">
@@ -19,13 +19,13 @@
                               <div class="card-header card-header-tabs card-header-warning">
                                   <div class="nav-tabs-navigation">
                                       <div class="nav-tabs-wrapper">
-                                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, repudiandae.
+                                        <h4 class="font-weight-bold">  Siz {{ \App\Region::find(Auth::user()->region_id)->name_uz }} {{ \App\District::find(Auth::user()->district_id)->name_uz }}dan ro'yxatdan o'tgansiz</h4>
                                       </div>
                                   </div>
                               </div>
                               <div class="row">
                                   <div class="col-12 text-right">
-                                      <a href="{{ route('data.list', [$table]) }}" class="btn btn-sm btn-info">{{ __('Вернуться в список') }}</a>
+                                      <a href="{{ route('data.list', [$table]) }}" class="btn btn-sm btn-info">{{ __('Рўйхатга қайтиш') }}</a>
                                   </div>
                               </div>
                               <div class="card-body">

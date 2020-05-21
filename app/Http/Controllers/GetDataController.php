@@ -23,7 +23,7 @@ class GetDataController extends Controller
     {
         if ($table->id == Table::TABLE_ONE){
             $regions = Region::query()->orderByDesc('id')->get();
-            if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('viloyat')){
+            if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('admin') || Auth()->user()->hasRole('viloyat')){
                 return view('backend.admin.getData.data', [
                     'table' => $table,
                     'regions' => $regions
@@ -38,7 +38,7 @@ class GetDataController extends Controller
             ]);
         }elseif ($table->id == Table::TABLE_TWO){
             $regions = Region::query()->orderBy('id')->get();
-            if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('viloyat')){
+            if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('admin') || Auth()->user()->hasRole('viloyat')){
                 return view('backend.admin.getData.data', [
                     'table' => $table,
                     'regions' => $regions
@@ -50,7 +50,7 @@ class GetDataController extends Controller
     public function getTableDataRegional(Region $region, Table $table)
     {
         if ($table->id == Table::TABLE_ONE){
-            if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('viloyat')){
+            if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('admin') || Auth()->user()->hasRole('viloyat')){
                 $districts = District::query()->where('region_id', $region->id)->orderBy('id')->get();
                 return view('backend.admin.getData.data-districts', [
                     'table' => $table,
@@ -76,7 +76,7 @@ class GetDataController extends Controller
 
     public function getTableDataResult(District $district, Table $table)
     {
-        if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('viloyat')){
+        if (Auth()->user()->hasRole('superadmin') || Auth()->user()->hasRole('admin') || Auth()->user()->hasRole('viloyat')){
             $dataCollections = DataCollection::query()->where('district_id', $district->id)->where('status', DataCollection::COLLECTION_STATUS_MODERATED)->latest()->paginate(20);
             $district = District::find($district->id);
             return view('backend.admin.getData.dataResult', [
