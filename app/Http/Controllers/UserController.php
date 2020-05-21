@@ -76,12 +76,12 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User  $user)
     {
-        \DB::table('model_has_roles', $request->get('roles'))->where('model_id', \Auth::id())->first()->delete();
+//        \DB::table('model_has_roles', $request->get('roles'))->where('model_id', \Auth::id())->first()->delete();
         $hasPassword = $request->get('password');
         $user->update(
             $request->merge(['password' => Hash::make($request->get('password'))])
                 ->except([$hasPassword ? '' : 'password']
-        ))->assignRole($request->get('roles'));
+        ));
 
         return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
     }

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -69,5 +70,10 @@ class User extends Authenticatable
             self::SECTOR_THREE => '3 - сектор',
             self::SECTOR_FOUR => '4 - сектор'
         ];
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'district_id', 'id');
     }
 }
