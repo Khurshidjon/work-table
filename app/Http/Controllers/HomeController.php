@@ -26,9 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $role = Role::findById(3);
-//        Permission::create(['name' => 'ruhsat berish']);
-        $role->givePermissionTo([7]);
+  //      $role = Role::findById(4);
+//        Role::create(['name' => 'admin']);
+//        $role->givePermissionTo([1,2,3,4,6,7]);
         return view('dashboard');
     }
 
