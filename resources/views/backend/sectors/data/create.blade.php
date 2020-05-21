@@ -11,7 +11,7 @@
             <p class="card-category">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, vitae.</p>
           </div>
           <div class="card-body">
-              <form action="{{ route('data.submit') }}" method="post" autocomplete="off">
+              <form action="{{ route('data.submit', [$table]) }}" method="post" autocomplete="off">
                   @csrf
                   <div class="row">
                       <div class="col-lg-12 col-md-12">

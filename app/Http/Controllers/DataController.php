@@ -30,7 +30,7 @@ class DataController extends Controller
      */
     public function index()
     {
-        $tables = Table::all();
+        $tables = Table::query()->where('status', Table::TABLE_STATUS_ACTIVE)->get();
         return view('backend.sectors.index-table', [
             'tables' => $tables,
         ]);

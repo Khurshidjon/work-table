@@ -4,6 +4,12 @@
     @php
         use App\DataCollection;
     @endphp
+    <style>
+        .table-row td{
+            text-align: center;
+            text-transform: uppercase !important;
+        }
+    </style>
     <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -21,7 +27,6 @@
                           <th rowspan="3">Худуд номлари</th>
                           <th colspan="5">Ҳудуддаги камбағал оилалар, шундан</th>
                           <th colspan="10">Таъминот шакли</th>
-                          {{--                        <th rowspan="3">Тадбиркорларга фаолиятини ривожлантириш учун керак бўладиган ресурслар</th>--}}
                       </tr>
                       <tr>
                           <th rowspan="2">Ишсиз аъзоси бор оилалар</th>
@@ -59,7 +64,7 @@
                             $agroSupply = \App\AgroSupply::query()->whereIn('form_of_supply_id', $forLiveStock);
                             $profession = \App\Profession::query()->whereIn('form_of_supply_id', $forLiveStock);
                           @endphp
-                          <tr class="text-center">
+                          <tr class="table-row">
                               <td>{{ $id++ }}</td>
                               <th><a class="font-weight-bold" href="{{ route('get-data-regional.index', [$region, $table]) }}">{{ $region->name_uz }}</a></th>
                               <td>{{ $poor_families->sum('unemployed_count') }}</td>
