@@ -43,7 +43,7 @@
                                                             <h4 class="text-left my-5"><b>Ҳудуддаги камбағал оилалар, шундан:</b></h4>
                                                             <div class="form-group my-4">
                                                                 <label for="unemployed_count">Ишсиз аъзоси бор оилалар</label>
-                                                                <input type="text" id="unemployed_count" class="form-control" name="unemployed_count" value="{{ old('unemployed_count', $dataCollection->updatePoorFamily->unemployed_count) }}">
+                                                                <input type="number" id="unemployed_count" class="form-control" name="unemployed_count" value="{{ old('unemployed_count', $dataCollection->updatePoorFamily->unemployed_count) }}">
                                                             </div>
                                                             <div class="form-group my-4">
                                                                 <label for="disable_people_count">Ногирон ва пенсионерлари бор оилалар</label>

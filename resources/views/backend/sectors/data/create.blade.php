@@ -41,23 +41,23 @@
                                               <h4 class="text-left my-5"><b>Ҳудуддаги камбағал оилалар, шундан:</b></h4>
                                               <div class="form-group my-4">
                                                   <label for="unemployed_count">Ишсиз аъзоси бор оилалар</label>
-                                                  <input type="text" id="unemployed_count" class="form-control" name="unemployed_count" value="{{ old('unemployed_count') }}">
+                                                  <input type="number" id="unemployed_count" class="form-control" name="unemployed_count" value="{{ old('unemployed_count') }}">
                                               </div>
                                               <div class="form-group my-4">
                                                   <label for="disable_people_count">Ногирон ва пенсионерлари бор оилалар</label>
-                                                  <input type="text" id="disable_people_count" class="form-control" name="disable_people_count" value="{{ old('disable_people_count') }}">
+                                                  <input type="number" id="disable_people_count" class="form-control" name="disable_people_count" value="{{ old('disable_people_count') }}">
                                               </div>
                                               <div class="form-group my-4">
                                                   <label for="low_income_families_count">Кам таъминланган оилалар</label>
-                                                  <input type="text" id="low_income_families_count" class="form-control" name="low_income_families_count" value="{{ old('low_income_families_count') }}">
+                                                  <input type="number" id="low_income_families_count" class="form-control" name="low_income_families_count" value="{{ old('low_income_families_count') }}">
                                               </div>
                                               <div class="form-group my-4">
                                                   <label for="large_families_count">Кўп болали оилалар</label>
-                                                  <input type="text" id="large_families_count" class="form-control" name="large_families_count" value="{{ old('large_families_count') }}">
+                                                  <input type="number" id="large_families_count" class="form-control" name="large_families_count" value="{{ old('large_families_count') }}">
                                               </div>
                                               <div class="form-group my-4">
                                                   <label for="lost_breadwinner_count">Боқувчисини йўқотган (бева)лар</label>
-                                                  <input type="text" id="lost_breadwinner_count" class="form-control" name="lost_breadwinner_count" value="{{ old('lost_breadwinner_count') }}">
+                                                  <input type="number" id="lost_breadwinner_count" class="form-control" name="lost_breadwinner_count" value="{{ old('lost_breadwinner_count') }}">
                                               </div>
                                           </div>
                                           <div class="col-md-6 mt-2">
@@ -65,19 +65,19 @@
                                               <div class="form-group my-4">
                                                   <label for="cash">Нақд пул кўринишида
                                                       (сўм)</label>
-                                                  <input type="text" id="cash" class="form-control" name="cash" value="{{ old('cash') }}">
+                                                  <input type="number" id="cash" class="form-control" name="cash" value="{{ old('cash') }}">
                                               </div>
                                               <div class="form-group my-4">
                                                   <label for="money_transfer">Пул ўтказиш йўли билан (сўм)</label>
-                                                  <input type="text" id="money_transfer" class="form-control" name="money_transfer" value="{{ old('money_transfer') }}">
+                                                  <input type="number" id="money_transfer" class="form-control" name="money_transfer" value="{{ old('money_transfer') }}">
                                               </div>
                                               <div class="form-group my-4">
                                                   <label for="foods">Тўғридан-тўғри озиқ-овқат маҳсулотлари ёрдамида (сўм)</label>
-                                                  <input type="text" id="foods" class="form-control" name="foods" value="{{ old('foods') }}">
+                                                  <input type="number" id="foods" class="form-control" name="foods" value="{{ old('foods') }}">
                                               </div>
                                               <div class="form-group my-4">
                                                   <label for="employment">Иш билан таъминлаш орқали (киши)</label>
-                                                  <input type="text" id="employment" class="form-control" name="employment" value="{{ old('employment') }}">
+                                                  <input type="number" id="employment" class="form-control" name="employment" value="{{ old('employment') }}">
                                               </div>
                                               <div class="form-group my-4">
                                                   <label for="large_horned">Берилган чорва ва парранда бош сони (тури, миқдори)</label>
@@ -111,7 +111,7 @@
                                                           <input type="number" id="trainees_count" class="form-control" name="trainees_count" placeholder="Ўқитилаётганлар сони" value="{{ old('trainees_count') }}">
                                                       </div>
                                                       <div class="col-md-6 my-3">
-                                                          <input type="text" id="teach_type" class="form-control" name="teach_type" placeholder="касб ёки тил" value="{{ old('teach_type') }}">
+                                                          <input type="text" id="teach_type" class="form-control" name="teach_type" placeholder="касб(sartaroshlik, duradgorlik ...) ёки тил (rus tili, ingliz tili ...)" value="{{ old('teach_type') }}">
                                                       </div>
                                                   </div>
                                               </div>
@@ -125,7 +125,7 @@
                                                   <input type="number" id="help_title" class="form-control" name="help_title" placeholder="ресурс миқдори" value="{{ old('help_title') }}">
                                               </div>
                                               <div class="col-md-6 my-3">
-                                                  <input type="text" id="help_type" class="form-control" name="help_type" placeholder="ресурс тури" value="{{ old('help_type') }}">
+                                                  <input type="number" id="help_type" class="form-control" name="help_type" placeholder="ресурс тури" value="{{ old('help_type') }}">
                                               </div>
                                           </div>
                                       </div>--}}
