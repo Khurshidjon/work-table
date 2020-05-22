@@ -143,7 +143,7 @@ class DataController extends Controller
 //            $help_to_company->save();
         }
 
-        return redirect()->route('data.list', [$table])->with('success', 'Section has been created successfully');
+        return redirect()->route('data.list', [$table])->with('success', 'Табриклаймиз, маълумот қўшилди. Энди барчага кўриниши учун текшириб, РУХСАТ БЕРИШ тугмасини босинг');
     }
 
     /**
@@ -258,7 +258,7 @@ class DataController extends Controller
 //            $help_to_company->data_collection_id = $dataCollection->id;
 //            $help_to_company->update();
         }
-        return redirect()->route('data.list', [$table])->with('success', 'Section has been updated successfully');
+        return redirect()->route('data.list', [$table])->with('success', 'Табриклаймиз, маълумот янгиланди. Энди барчага кўриниши учун текшириб, РУХСАТ БЕРИШ тугмасини босинг');
     }
 
     /**
@@ -288,9 +288,9 @@ class DataController extends Controller
         }
         $dataCollection->update();
         if ($request->currentPage){
-            return redirect('data/index-list/'.$table->id.'?page='.$request->currentPage)->with('success', 'Section has been updated successfully');
+            return redirect('data/index-list/'.$table->id.'?page='.$request->currentPage)->with('success', 'Маълумотлар тўғри эканлигига ишонч ҳосил қилдингизми?');
         }else{
-            return redirect()->route('data.index')->with('success', 'Section has been updated successfully');
+            return redirect()->route('data.list', [$table])->with('success', 'Маълумотлар тўғри эканлигига ишонч ҳосил қилдингизми?');
         }
     }
     /**

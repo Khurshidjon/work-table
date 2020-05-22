@@ -128,11 +128,11 @@
                                                             <div class="row">
                                                                 <div class="col-md-6 my-3">
                                                                     <label for="">Ўқитилаётганлар сони</label>
-                                                                    <p>{{ json_decode($dataCollection->updateFormOfSupplies->training)[0]->trainees_count }}</p>
+                                                                    <p>{{ $dataCollection->updateFormOfSupplies->updateProfession->trainees_count }}</p>
                                                                 </div>
                                                                 <div class="col-md-6 my-3">
                                                                     <label for="">Касб ёки тил</label>
-                                                                    <p>{{ json_decode($dataCollection->updateFormOfSupplies->training)[0]->teach_type }}</p>
+                                                                    <p>{{  $dataCollection->updateFormOfSupplies->updateProfession->teach_type }}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -141,17 +141,17 @@
                                                 @can('ruhsat berish')
                                                     <ul class="list-inline">
                                                         <li class="list-inline-item">
-                                                            <form action="{{ route('data.confirm', ['dataCollection' => $dataCollection]) }}" method="post">
+                                                            <form action="{{ route('data.confirm', ['dataCollection' => $dataCollection, 'table' => $table]) }}" method="post">
                                                                 @csrf
                                                                 <input type="hidden" name="status" value="unpublished">
-                                                                <button type="submit" class="btn btn-primary">Отменить публикацию</button>
+                                                                <button type="submit" class="btn btn-primary">Инкор этиш</button>
                                                             </form>
                                                         </li>
                                                         <li class="list-inline-item">
-                                                            <form action="{{ route('data.confirm', ['dataCollection' => $dataCollection]) }}" method="post">
+                                                            <form action="{{ route('data.confirm', ['dataCollection' => $dataCollection, 'table' => $table]) }}" method="post">
                                                                 @csrf
                                                                 <input type="hidden" name="status" value="published">
-                                                                <button type="submit" class="btn btn-primary">Публиковать</button>
+                                                                <button type="submit" class="btn btn-primary">Рухсат бериш</button>
                                                             </form>
                                                         </li>
                                                     </ul>

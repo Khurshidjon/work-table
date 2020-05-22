@@ -103,7 +103,7 @@
                                                     @csrf
                                                     <input type="hidden" name="currentPage" value="{{ $dataRegion->currentPage()  }}">
                                                     <input type="hidden" name="status" value="unpublished">
-                                                    <button type="submit" class="btn btn-sm btn-primary">Отменить публикацию</button>
+                                                    <button type="submit" class="btn btn-sm btn-primary">Инкор этиш</button>
                                                 </form>
                                             </li>
                                             <li class="list-inline-item">
@@ -111,7 +111,7 @@
                                                     @csrf
                                                     <input type="hidden" name="currentPage" value="{{ $dataRegion->currentPage()  }}">
                                                     <input type="hidden" name="status" value="published">
-                                                    <button type="submit" class="btn btn-sm btn-primary">Публиковать</button>
+                                                    <button type="submit" class="btn btn-sm btn-primary">Рухсат бериш</button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -134,4 +134,21 @@
     </div>
   </div>
 </div>
+@if (Session::has('success'))
+    @push('js')
+        <script !src="">
+            $.notify({
+                icon: "add_alert",
+                message: "<span class='font-weight-bold'>{{ Session::get('success')  }}</span>",
+            }, {
+                type: 'danger',
+                timer: 5000,
+                placement: {
+                    from: 'top',
+                    align: 'right'
+                }
+            });
+        </script>
+    @endpush
+@endif
 @endsection
