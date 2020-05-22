@@ -33,7 +33,7 @@
                                   <div class="form-group">
                                       <br>
                                       <label style="color: black" for="title">Корхона, тадбиркор ёки фермер хўжаликлари номи (ҳомийлар) ва манзили</label>
-                                      <input type="text" id="company_name" class="form-control" placeholder="Номи ва манзилини киритинг" name="company_name" value="{{ old('company_name') }}">
+                                      <input type="text" id="company_name" class="form-control" required placeholder="Номи ва манзилини киритинг" name="company_name" value="{{ old('company_name') }}">
                                   </div>
                                   <div class="container-fluid">
                                       <div class="row">
