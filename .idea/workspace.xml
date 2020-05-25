@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67ba2c93-eeb9-4920-92eb-6cef4376fb9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/sectors/data/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/sectors/data/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/getData/data-districts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/getData/data-districts.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +201,8 @@
       <workItem from="1590065059929" duration="1533000" />
       <workItem from="1590075262092" duration="11476000" />
       <workItem from="1590141853060" duration="1081000" />
+      <workItem from="1590226590657" duration="617000" />
+      <workItem from="1590382439591" duration="264000" />
     </task>
     <servers />
   </component>
@@ -215,18 +218,14 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="729" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589274358741" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1581597319365">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581597319365" />
     <state x="660" y="252" width="672" height="677" key="run.anything.popup" timestamp="1589280422065">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="660" y="252" width="672" height="677" key="run.anything.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589280422065" />
-    <state x="610" y="259" width="699" height="678" key="search.everywhere.popup" timestamp="1590123899655">
+    <state x="610" y="259" width="699" height="678" key="search.everywhere.popup" timestamp="1590382632354">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="610" y="259" width="699" height="678" key="search.everywhere.popup/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1590123899655" />
+    <state x="610" y="259" width="699" height="678" key="search.everywhere.popup/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1590382632354" />
     <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1589362947158" />
   </component>
 </project>

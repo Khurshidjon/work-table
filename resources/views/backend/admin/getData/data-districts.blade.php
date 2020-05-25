@@ -56,7 +56,7 @@
                       @endphp
                       @foreach($districts as $district)
                           @php
-                            $dataCollection = \App\DataCollection::query()->where('district_id', $district->id)->select('id')->get()->toArray();
+                            $dataCollection = \App\DataCollection::query()->where('district_id', $district->id)->where('status', \App\DataCollection::COLLECTION_STATUS_MODERATED)->select('id')->get()->toArray();
                             $poor_families = \App\PoorFamily::query()->whereIn('data_collection_id', $dataCollection);
                             $form_of_supply = \App\FormOfSupply::query()->whereIn('data_collection_id', $dataCollection);
                             $forLiveStock = $form_of_supply->select('id')->get()->toArray();
